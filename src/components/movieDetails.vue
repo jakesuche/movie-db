@@ -1,5 +1,7 @@
 <template>
+<transition name="fade">
     <div class="movie-wrapper" v-bind:style="styles">
+        <div class="movie-info">
         <h1>
             {{movie.title}}
             
@@ -8,7 +10,9 @@
          <p>
              {{movie.overview}}
          </p>
+         </div>
     </div>
+</transition>
 </template>
 
 <script>
@@ -51,5 +55,24 @@ export default {
 </script>
 
 <style scoped>
+.movie-wrapper{
+    position:relative;
+    padding-top:50vh;
+    background-size:cover;
+}
+.movie-info{
+    background: white;
+    color:#222;
+    padding: 2rem 10% ;
+}
+ .fade-enter-active, .fade-leave-active{
+        transition: all 0.3s ease;
+    }
+.fade-enter, .fade-leave-to {
+        opacity: 0;
+        transform: translateX(100%)
+ }
+
+
 
 </style>

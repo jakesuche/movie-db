@@ -1,7 +1,11 @@
 <template>
     <header>
-        <h1>{{ title }}</h1>
         
+        <h1><router-link to= "/"> {{ title }}</router-link></h1>
+        <!-- <transition name="fade">
+            <h1 v-if="show"> Animated</h1>
+        </transition>
+        <button @click="show = !show">Show/Hide</button> -->
     </header>
 </template>
 
@@ -13,7 +17,8 @@ export default {
     },
     data() {
         return {
-            name:'scot'
+            name:'scot',
+            show:false
         };
     },
     computed:{
@@ -37,7 +42,14 @@ export default {
         color:white
     }
     h1{
-        margin:0px
+        margin:0;
     }
+    .fade-enter-active, .fade-leave-active{
+        transition: all 0.3s ease;
+    }
+    .fade-enter, .fade-leave-to {
+        opacity: 0;
+    }
+
 
 </style>
